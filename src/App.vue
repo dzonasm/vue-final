@@ -6,7 +6,26 @@
   <router-view />
 </template>
 
+<script>
+export default {
+  // mounted() {
+  //   this.$nextTick(function () {
+  //     // Code that will run only after the
+  //     // entire view has been rendered
+  //   });
+  // },
+  // data(){
+  // }
+};
+</script>
+
 <style>
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
