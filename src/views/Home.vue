@@ -1,6 +1,5 @@
 <template>
   <div class="home container">
-    <img alt="Vue logo" src="../assets/logo.png" />
     <CardList></CardList>
   </div>
 </template>

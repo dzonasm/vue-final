@@ -1,13 +1,15 @@
 <template>
-  <li class="card">
-    <img :src="image" alt="" />
-    <h3 class="truncate">
-      {{ title }}
-    </h3>
-    <p>
-      <b>{{ worth }}</b>
-    </p>
-  </li>
+  <router-link to="/about">
+    <li class="card grow">
+      <img :src="image" alt="" />
+      <h3 class="truncate">
+        {{ title }}
+      </h3>
+      <p>
+        <b>{{ worth }}</b>
+      </p>
+    </li>
+  </router-link>
 </template>
 
 <script>
@@ -37,7 +39,9 @@ export default {
     white max(9.5rem, 27vh)
   );
   overflow: hidden;
+  width: 80%;
   max-width: 300px;
+  cursor: pointer;
 }
 
 .truncate {
@@ -45,6 +49,13 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.grow {
+  transition: all 0.3s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.05);
 }
 
 img {
@@ -65,5 +76,10 @@ img {
 
 .card a {
   color: inherit;
+}
+
+a {
+  display: grid;
+  place-items: center;
 }
 </style>

@@ -2,6 +2,7 @@
   <ul class="card-wrapper">
     <Card
       v-for="product in allProducts"
+      @click="this.fetchSingleProduct(product.id)"
       :key="product.id"
       :image="product.image"
       :title="product.title"
@@ -21,7 +22,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["fetchProducts"]),
+    ...mapActions(["fetchProducts", "fetchSingleProduct"]),
   },
   computed: mapGetters(["allProducts"]),
   components: { Card },
