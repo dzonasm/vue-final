@@ -1,21 +1,28 @@
 <template>
   <li class="card">
-    <img
-      src="https://images.unsplash.com/photo-1611916656173-875e4277bea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400"
-      alt=""
-    />
-    <h3><a href="">A Super Wonderful Headline</a></h3>
-    <p>Lorem ipsum sit dolor amit</p>
+    <img :src="image" alt="" />
+    <h3 class="truncate">
+      {{ title }}
+    </h3>
+    <p>
+      <b>{{ worth }}</b>
+    </p>
   </li>
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    title: String,
+    image: String,
+    worth: String,
+  },
+};
 </script>
 
 <style scoped>
 .card {
-  --card-gradient: rgba(0, 0, 0, 0.8);
+  --card-gradient: rgba(0, 0, 0, 0);
   --card-gradient: #5e9ad9, #e271ad;
   --card-gradient: tomato, orange;
   --card-blend-mode: overlay;
@@ -32,6 +39,14 @@ export default {};
   overflow: hidden;
   max-width: 300px;
 }
+
+.truncate {
+  padding: 0 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 img {
   border-radius: 0.5rem 0.5rem 0 0;
   width: 100%;

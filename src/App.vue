@@ -26,6 +26,12 @@ export default {
   margin: 0;
 }
 
+.container {
+  margin: 0 auto;
+  min-width: 90vw;
+  max-width: 1000px;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
