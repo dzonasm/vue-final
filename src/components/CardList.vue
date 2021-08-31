@@ -1,7 +1,7 @@
 <template>
   <ul class="card-wrapper">
     <Card
-      v-for="product in allProducts"
+      v-for="product in products"
       @click="this.fetchSingleProduct(product.id)"
       :key="product.id"
       :image="product.image"
@@ -12,24 +12,18 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 import Card from "./Card.vue";
 export default {
   name: "CardList",
-  data: function () {
-    return {
-      allProductsUrl: "http://167.99.138.67:4545/giveaways/all",
-    };
-  },
   methods: {
     ...mapActions(["fetchProducts", "fetchSingleProduct"]),
   },
-  computed: mapGetters(["allProducts"]),
   components: { Card },
-  created() {
-    this.fetchProducts(this.allProductsUrl);
+
+  props: {
+    products: Array,
   },
-  props: {},
 };
 </script>
 

@@ -5,7 +5,7 @@
       <h3 class="truncate">
         {{ title }}
       </h3>
-      <p>
+      <p v-bind:class="[getNumbers(worth) > 5 ? yellow : green]">
         <b>{{ worth }}</b>
       </p>
     </li>
@@ -18,6 +18,19 @@ export default {
     title: String,
     image: String,
     worth: String,
+  },
+  methods: {
+    getNumbers: function (numberString) {
+      let untilDot = numberString.match(/[^.]*/, "");
+      let num = untilDot[0].replace(/[^0-9]/g, "");
+      return Number(num.substring(0, 2));
+    },
+  },
+  data() {
+    return {
+      green: "green",
+      yellow: "yellow",
+    };
   },
 };
 </script>
@@ -44,6 +57,14 @@ export default {
   cursor: pointer;
 }
 
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
 .truncate {
   padding: 0 0.8rem;
   white-space: nowrap;
@@ -56,6 +77,10 @@ export default {
 }
 .grow:hover {
   transform: scale(1.05);
+}
+
+.green {
+  background: rgb(0, 185, 0);
 }
 
 img {

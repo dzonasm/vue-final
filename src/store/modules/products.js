@@ -5,6 +5,7 @@ const state = {};
 const getters = {
   allProducts: (state) => state.products,
   singleProduct: (state) => state.singleProduct,
+  sortedProducts: (state) => state.sortedProducts,
 };
 
 const actions = {
@@ -21,12 +22,22 @@ const actions = {
     );
     commit("setSingleProduct", response.data);
   },
+  async fetchSortedProducts(context, url) {
+    console.log(url);
+    const { commit } = context;
+    const response = await axios.get(url);
+    commit("setSortedProducts", response.data);
+  },
 };
 
 const mutations = {
   setProducts: (state, products) => (state.products = products),
+
   setSingleProduct: (state, singleProduct) =>
     (state.singleProduct = singleProduct),
+
+  setSortedProducts: (state, sortedProducts) =>
+    (state.sortedProducts = sortedProducts),
 };
 
 export default {
